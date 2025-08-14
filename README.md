@@ -56,8 +56,6 @@ $$
 \mathcal{L} = \lambda_1 L_{\text{contrast}} + \lambda_2 L_{\text{cycle}} + \lambda_3 L_{\text{knn}} + \lambda_4 L_{\text{orth}} + \lambda_5 L_{\text{denoise}}
 $$
 
-
-
 These together balance alignment, structure preservation, and robustness across heterogeneous modalities.
 
 ## Ancient Tibetian Translation
@@ -73,11 +71,15 @@ Using **VallayZ / IMPN**, we built a **tri-modal translation bridge**:
 - **Modality B:** Generated audio transliterations  
 - **Modality C:** Modern English translations  
 By aligning these modalities in a shared latent **soil space** and exchanging **stochastic micro-variants** with **selective gating**, the model learns to focus on the most relevant semantic variants for each translation context.
-
+![Retrieval Metrics](loss_plot_metrics.png)
 **Results** *(4,000 epochs, ~30 min training)*:  
 - **Top-1 accuracy:** 77%  
 - **Top-5 accuracy:** 88%
-- 
+- **Avg Accuracy:** 0.83
+
+
+![Training Loss Curves](loss_plot_losses.png)
+
 Total & Contrastive loss steadily decreasing, indicating improved cross-modal alignment.
 
 Cycle-consistency loss reducing, meaning round-trip translation (Tibetan → English → Tibetan) preserves more meaning.
@@ -88,8 +90,6 @@ Orthogonality regularization increasing gradually, suggesting the adapters are l
 
 Optimal Transport loss stabilizing, showing alignment of latent distributions across modalities.
 
-
-![Results](HOW DO U ADDD PICTURES TO GIT GODDDMAN IT )
 
 ## Original Idea 
 One of the original motivations for **VallayZ / IMPN** was to tackle **virus strain prediction** — specifically, identifying **high-entropy loci** in viral genomes that are most likely to mutate into a new strain during an outbreak.
@@ -123,4 +123,4 @@ By routing only the most informative cross-modal signals, VallayZ can:
 - Output a ranked list of high-entropy genome loci with elevated mutation probability
 
 
-## IMPN 
+## IMPN Maths 
