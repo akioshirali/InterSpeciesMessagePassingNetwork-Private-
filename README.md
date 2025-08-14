@@ -77,3 +77,7 @@ By aligning these modalities in a shared latent **soil space** and exchanging **
 
 ## Original Idea 
 
+
+
+
+## IMPN 
