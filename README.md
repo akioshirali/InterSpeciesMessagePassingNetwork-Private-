@@ -58,7 +58,7 @@ The **total loss** is a weighted sum:
 These together balance alignment, structure preservation, and robustness across heterogeneous modalities.
 
 ## Ancient Tibetian Translation
-Ancient Tibetan is a hard translation problem because its meaning is distributed across context.  It becomes a question of **How do you map between two worlds when one is data-rich, the other is data-poor, and their “units of meaning” don’t even match?***As the meaning of a single sentence often depends on the chapter-level context.  this is compounded as a problem as the character set is oversampled compared to English, and each character can have multiple contextual meanings.
+Ancient Tibetan is a hard translation problem because its meaning is distributed across context.  It becomes a question of **How do you map between two worlds when one is data-rich, the other is data-poor, and their “units of meaning” don’t even match?** As the meaning of a single sentence often depends on the chapter-level context.  this is compounded as a problem as the character set is oversampled compared to English, and each character can have multiple contextual meanings.
 
 Using **VallayZ / IMPN**, we built a **tri-modal translation bridge**:
 - **Modality A:** Ancient Tibetan text embeddings  
@@ -70,7 +70,7 @@ By aligning these modalities in a shared latent **soil space** and exchanging **
 - **Top-1 accuracy:** 77%  
 - **Top-5 accuracy:** 88%
 
-
-
 ![VallayZ architecture diagram]()
+
+## Original Idea 
 
