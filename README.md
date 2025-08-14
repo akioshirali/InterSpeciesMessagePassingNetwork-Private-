@@ -50,10 +50,12 @@ The VallayZ / IMPN training objective combines multiple complementary loss terms
 - **Denoising Regularization:**  
   Promotes robustness to perturbations in the shared space by penalizing deviation from the clean aggregated signal.
 
-The **total loss** is a weighted sum:  
+The **total loss** is a weighted sum:
+
 $$
 \mathcal{L} = \lambda_1 L_{\text{contrast}} + \lambda_2 L_{\text{cycle}} + \lambda_3 L_{\text{knn}} + \lambda_4 L_{\text{orth}} + \lambda_5 L_{\text{denoise}}
 $$
+
 
 
 These together balance alignment, structure preservation, and robustness across heterogeneous modalities.
