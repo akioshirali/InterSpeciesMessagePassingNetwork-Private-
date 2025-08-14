@@ -55,6 +55,7 @@ $$
 \mathcal{L} = \lambda_1 L_{\text{contrast}} + \lambda_2 L_{\text{cycle}} + \lambda_3 L_{\text{knn}} + \lambda_4 L_{\text{orth}} + \lambda_5 L_{\text{denoise}}
 $$
 
+
 These together balance alignment, structure preservation, and robustness across heterogeneous modalities.
 
 ## Ancient Tibetian Translation
