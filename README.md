@@ -142,14 +142,13 @@ The core IMPN communication happens in three steps per layer $\ell$:
   $$\mathbf{a}^{(\ell)} \leftarrow \mathbf{a}^{(\ell)} + \text{Attention}(\mathbf{a}^{(\ell)}, \mathbf{a}^{(\ell)}, \mathbf{a}^{(\ell)})$$
 
 2. **Cross-Modal Gating:** Selective message passing between modalities:
-  - **Edge gates** combine node features with geometric relationships:
-    $$g_{ij} = \sigma(\text{MLP}([\mathbf{a}_i; \mathbf{b}_j; \langle\mathbf{a}_i, \mathbf{b}_j\rangle]))$$
-  - **TopK-Softmax** focuses on most relevant connections:
-    $$\mathbf{w}_{ij} = \begin{cases}
-    \frac{e^{g_{ij}}}{\sum_{j'\in \text{top}_k} e^{g_{ij'}}} & j \in \text{top}_k \\
-    0 & \text{otherwise}
-    \end{cases}$$
-  - **Message aggregation:** $\mathbf{a}_i \leftarrow \mathbf{a}_i + \sum_j \mathbf{w}_{ij} \mathbf{b}_j$
+- **Edge gates** combine node features with geometric relationships:
+  $$g_{ij} = \sigma\left(\text{MLP}\left(\left[\mathbf{a}_i; \mathbf{b}_j; \langle\mathbf{a}_i, \mathbf{b}_j\rangle\right]\right)\right)$$
+- **TopK-Softmax**:
+  $$w_{ij} = exp(g_{ij}) / S_i $$  (for j in top-k neighbors of i)
+  where $$S_i = \sum[exp(g_{ij})]$$ over j in top-k
+  $$w_{ij} = 0$$ for other j
+- **Message aggregation:** $$a_i \leftarrow a_i + \sum_j w_{ij} b_j$$
 
 3. **Feedforward Update:** Non-linear transformation with residuals:
   $$\mathbf{a}^{(\ell)} \leftarrow \mathbf{a}^{(\ell)} + \text{MLP}(\text{LayerNorm}(\mathbf{a}^{(\ell)}))$$
@@ -158,9 +157,9 @@ The core IMPN communication happens in three steps per layer $\ell$:
 The system self-adjusts during training:
 - **Planner:** Dynamically tunes hyperparameters based on loss landscape
  - High contrast loss → Reduce attention temperature $T_{\text{self}}$
- - High cycle loss → Increase top-$k$ edges for more message diversity
+ - High cycle loss → Increase top-k edges for more message diversity
 - **Actor:** Executes IMPN with current hyperparameters  
-- **Critic:** Scores performance: $-(\mathcal{L}_{\text{contrast}} + 0.5\mathcal{L}_{\text{cycle}})$
+- **Critic:** Scores performance: $-(L_{\text{contrast}} + 0.5L_{\text{cycle}})$
 
 ### Theoretical Foundation
 IMPN generalizes both MLPs and Kernel Approximation Networks:
