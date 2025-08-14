@@ -30,8 +30,6 @@ The **total loss** is a weighted sum:
 
 These terms together balance **alignment**, **structure preservation**, and **robustness** across heterogeneous modalities.
 
-
-
 ## Ancient Tibetian Translation 
 Using **VallayZ / IMPN**, we built a **tri-modal translation bridge**:
 
@@ -43,4 +41,7 @@ By aligning these modalities in a shared latent **soil space** and exchanging **
 
 **Results** *(4,000 epochs, ~30 min training)*:  
 - **Top-1 accuracy:** 77%  
-- **Top-5 accuracy:** 88%  
+- **Top-5 accuracy:** 88%
+
+![VallayZ architecture diagram]()
+
