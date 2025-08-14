@@ -6,6 +6,30 @@ Interspecies Message Passing Networks (IMPNs) and the VallayZ framework is a neu
 
 ## The Broad Idea
 
+1. **Roots into Shared Soil**  
+   Each modality (vision, text, audio, etc.) first grows roots into a **common soil space** via an adapter.  
+   These adapters normalize everyone into the same latent dimensionality — a neutral ground where any species can interact.
+
+2. **Multiple Nutrient Packets**  
+   Instead of sending one perfect representation, each input sprouts **K noisy variants**.  
+   Tiny perturbations explore nearby territory in the latent space — like sending several nutrient blends to see which ones the neighbor prefers.
+
+3. **Fungal Selection**  
+   The receiver’s **receptors** score each incoming variant and pick the **top-k**.  
+   This is learned selectivity, so the receiver ignores junk and focuses on the variants that matter to it.
+
+4. **Weighted Aggregation**  
+   The chosen variants get averaged together with **learned weights**.  
+   This smooths out random noise and creates a cleaner, more robust signal — a biological denoising filter.
+
+5. **Residual Update**  
+   The aggregated signal updates the receiver’s **internal state** (via residual or GRU-style updates).  
+   This lets it accumulate and refine information over time, not just react in the moment.
+
+6. **Decoding**  
+   Once updated, the receiver can map the shared latent signal back into its own **native language**  
+   (e.g., vision → text, text → audio, etc.).
+   
 
 ## Loss Metrics
 
